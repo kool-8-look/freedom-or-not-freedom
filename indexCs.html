@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下方发射升空爆炸烟花效果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            overflow: hidden;
+            background-color: #000; /* 黑色背景更凸显烟花效果 */
+        }
+        canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="fireworksCanvas"></canvas>
+
+    <script>
+        // 获取画布和上下文
+        const canvas = document.getElementById('fireworksCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // 设置画布尺寸为窗口大小
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // 工具函数：生成随机数
+        function random(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // 工具函数：计算两点之间的距离
+        function distance(x1, y1, x2, y2) {
+            const dx = x2 - x1;
+            const dy = y2 - y1;
+            return Math.sqrt(dx * dx + dy * dy);
+        }
+
+        // 烟花粒子类（用于爆炸后的碎片）
+        class Particle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                // 随机爆炸方向和速度
+                this.speed = random(1, 4);
+                this.angle = random(0, Math.PI * 2);
+                this.vx = Math.cos(this.angle) * this.speed;
+                this.vy = Math.sin(this.angle) * this.speed;
+                // 粒子颜色（继承烟花主体颜色）
+                this.color = color;
+                // 粒子大小
+                this.size = random(1, 3);
+                // 粒子生命周期（用于渐变消失）
+                this.life = 100;
+                this.alpha = 1;
+                // 重力影响（让粒子有下落趋势）
+                this.gravity = 0.02;
+            }
+
+            // 更新粒子状态
+            update() {
+                // 加入重力，y轴速度逐渐增加（向下加速）
+                this.vy += this.gravity;
+                // 更新位置
+                this.x += this.vx;
+                this.y += this.vy;
+                // 粒子减速（空气阻力）
+                this.vx *= 0.98;
+                this.vy *= 0.98;
+                // 生命周期减少，透明度降低
+                this.life--;
+                this.alpha = this.life / 100;
+            }
+
+            // 绘制粒子
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        // 烟花类（负责从下方发射到空中）
+        class Firework {
+            constructor() {
+                // 发射起点：页面下方随机位置
+                this.startX = random(canvas.width * 0.2, canvas.width * 0.8);
+                this.startY = canvas.height; // 画布底部
+                // 爆炸目标点：空中随机位置（垂直方向在画布1/3到1/2高度之间）
+                this.targetX = random(canvas.width * 0.2, canvas.width * 0.8);
+                this.targetY = random(canvas.height * 0.3, canvas.height * 0.5);
+                // 当前位置
+                this.x = this.startX;
+                this.y = this.startY;
+                // 发射速度（根据到目标点的距离计算，保证发射时长相对均匀）
+                this.distance = distance(this.startX, this.startY, this.targetX, this.targetY);
+                this.speed = this.distance / 60; // 60帧左右到达目标
+                // 移动方向
+                this.vx = (this.targetX - this.startX) / this.distance * this.speed;
+                this.vy = (this.targetY - this.startY) / this.distance * this.speed;
+                // 烟花主体颜色（随机暖色调）
+                this.colors = [
+                    '#ff0000', '#ff7f00', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#8b00ff'
+                ];
+                this.color = this.colors[Math.floor(random(0, this.colors.length))];
+                // 是否已爆炸
+                this.exploded = false;
+                // 爆炸后的粒子数组
+                this.particles = [];
+            }
+
+            // 更新烟花状态
+            update() {
+                if (!this.exploded) {
+                    // 未爆炸：继续向目标点移动
+                    const currentDistance = distance(this.x, this.y, this.targetX, this.targetY);
+                    // 判断是否到达目标点（距离小于速度则视为到达）
+                    if (currentDistance <= this.speed) {
+                        this.explode(); // 触发爆炸
+                    } else {
+                        // 更新当前位置
+                        this.x += this.vx;
+                        this.y += this.vy;
+                    }
+                } else {
+                    // 已爆炸：更新所有粒子状态
+                    for (let i = this.particles.length - 1; i >= 0; i--) {
+                        const particle = this.particles[i];
+                        particle.update();
+                        // 移除生命周期结束的粒子
+                        if (particle.life <= 0) {
+                            this.particles.splice(i, 1);
+                        }
+                    }
+                }
+            }
+
+            // 爆炸逻辑：生成大量粒子
+            explode() {
+                this.exploded = true;
+                // 生成100-150个爆炸粒子
+                const particleCount = random(100, 150);
+                for (let i = 0; i < particleCount; i++) {
+                    this.particles.push(new Particle(this.targetX, this.targetY, this.color));
+                }
+            }
+
+            // 绘制烟花
+            draw() {
+                if (!this.exploded) {
+                    // 未爆炸：绘制发射中的烟花（小光点）
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                    ctx.restore();
+                } else {
+                    // 已爆炸：绘制所有粒子
+                    this.particles.forEach(particle => {
+                        particle.draw();
+                    });
+                }
+            }
+
+            // 判断烟花是否已完全消失（粒子全部消亡）
+            isGone() {
+                return this.exploded && this.particles.length === 0;
+            }
+        }
+
+        // 烟花数组：存储当前活跃的烟花
+        let fireworks = [];
+
+        // 动画循环
+        function animate() {
+            // 半透明黑色背景，实现拖影效果
+            // ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillStyle = '#000000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // 随机生成新烟花（每帧有5%的概率生成一个新烟花）
+            if (Math.random() < 0.05) {
+                fireworks.push(new Firework());
+            }
+
+            // 更新和绘制所有烟花，并移除已消失的烟花
+            for (let i = fireworks.length - 1; i >= 0; i--) {
+                const firework = fireworks[i];
+                firework.update();
+                firework.draw();
+
+                if (firework.isGone()) {
+                    fireworks.splice(i, 1);
+                }
+            }
+
+            // 继续动画循环
+            requestAnimationFrame(animate);
+        }
+
+        // 启动动画
+        animate();
+
+        // 点击页面也可以手动触发烟花
+        canvas.addEventListener('click', (e) => {
+            const firework = new Firework();
+            // 手动设置爆炸目标点为点击位置
+            firework.targetX = e.clientX;
+            firework.targetY = e.clientY;
+            // 重新计算发射参数
+            firework.distance = distance(firework.startX, firework.startY, firework.targetX, firework.targetY);
+            firework.speed = firework.distance / 60;
+            firework.vx = (firework.targetX - firework.startX) / firework.distance * firework.speed;
+            firework.vy = (firework.targetY - firework.startY) / firework.distance * firework.speed;
+            fireworks.push(firework);
+        });
+    </script>
+</body>
+</html>

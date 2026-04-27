@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#000000" />
+  <link rel="shortcut icon" type="image/png" href="./src/pages/fireworks2/images/favicon.png" />
+  <link rel="icon" type="image/png" href="./src/pages/fireworks2/images/favicon.png" />
+  <link rel="apple-touch-icon-precomposed" href="./src/pages/fireworks2/images/favicon.png" />
+  <link rel="apple-touch-icon" href="./src/pages/fireworks2/images/favicon.png" />
+  <link rel="stylesheet" href="/waifu.css">
+
+  <meta name="msapplication-TileColor" content="#000000" />
+  <meta name="msapplication-TileImage" content="./src/pages/fireworks2/images/favicon.png" />
+  <title></title>
+</head>
+
+<body>
+  <div id="root"> </div>
+  <script type="module" src="./src/index.jsx"></script>
+  <script src="/jquery.min.js"></script>
+  <script src="/jquery-ui.min.js"></script>
+  <script src="/live2d.js"></script>
+  <script src="/waifu-tips.js"></script>
+  <script src="/autoload.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if ($('.waifu').length === 0) {
+        return;
+      }
+      // 添加这个检测，移动端完全不加载 Live2D
+      if (window.innerWidth <= 768) {
+        return;
+      }
+      live2d_settings['modelId'] = 1;
+      live2d_settings['modelTexturesId'] = 0;
+      initModel();
+    });
+  </script>
+</body>
+
+</html>

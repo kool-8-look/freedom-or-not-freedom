@@ -1,0 +1,27 @@
+// 引入变量文件
+@import "_variables.less";
+
+// 定义媒体查询混合宏
+.media-sm(@rules) {
+  @media (min-width: @breakpoint-sm) {
+    @rules();
+  }
+}
+
+.media-md(@rules) {
+  @media (min-width: @breakpoint-md) {
+    @rules();
+  }
+}
+
+.media-lg(@rules) {
+  @media (min-width: @breakpoint-lg) {
+    @rules();
+  }
+}
+
+.media-xl(@rules) {
+  @media (min-width: @breakpoint-xl) {
+    @rules();
+  }
+}

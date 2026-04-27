@@ -1,0 +1,104 @@
+{
+  "models": {
+    "1": {
+      "path": "/live2d_api/model/Potion-Maker/Pio/index.json",
+      "message": "Pio 已经准备好了！",
+      "textures": [
+        {"id": 0, "name": "默认服装", "file": "textures/default-costume.png"},
+        {"id": 1, "name": "女巫服装", "file": "textures/witch-costume.png"},
+        {"id": 2, "name": "动物服装", "file": "textures/animal-costume.png"},
+        {"id": 3, "name": "兔女郎服装", "file": "textures/bunny-girl-costume.png"},
+        {"id": 4, "name": "学校制服", "file": "textures/school-costume.png"},
+        {"id": 5, "name": "泳装", "file": "textures/swimsuit-2017-costume-navy.png"},
+        {"id": 6, "name": "冬装外套", "file": "textures/winter-coat-costume.png"},
+        {"id": 7, "name": "女仆装", "file": "textures/maid-costume.png"},
+        {"id": 8, "name": "圣诞装", "file": "textures/santa-costume.png"},
+        {"id": 9, "name": "睡衣", "file": "textures/pajamas-costume.png"}
+      ]
+    },
+    "2": {
+      "path": "/live2d_api/model/KantaiCollection/murakumo/index.json",
+      "message": "村雨，出击！"
+    },
+    "3": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/blanc_classic/index.json",
+      "message": "布兰，参上！"
+    },
+    "4": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/blanc_normal/index.json",
+      "message": "布兰，准备好了！"
+    },
+    "5": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/blanc_swimwear/index.json",
+      "message": "布兰，泳装模式！"
+    },
+    "6": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/histoire/index.json",
+      "message": "伊斯特瓦尔，在此！"
+    },
+    "7": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/histoirenohover/index.json",
+      "message": "伊斯特瓦尔，在此！"
+    },
+    "8": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/nepgear/index.json",
+      "message": "妮普吉雅，准备好了！"
+    },
+    "9": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/nepgear_extra/index.json",
+      "message": "妮普吉雅，特殊形态！"
+    },
+    "10": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/nepgearswim/index.json",
+      "message": "妮普吉雅，泳装模式！"
+    },
+    "11": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/nepmaid/index.json",
+      "message": "妮普吉雅，女仆装！"
+    },
+    "12": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/nepnep/index.json",
+      "message": "涅普顿，参上！"
+    },
+    "13": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/nepswim/index.json",
+      "message": "涅普顿，泳装模式！"
+    },
+    "14": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/neptune_classic/index.json",
+      "message": "涅普顿，经典形态！"
+    },
+    "15": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/neptune_santa/index.json",
+      "message": "涅普顿，圣诞快乐！"
+    },
+    "16": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/noir/index.json",
+      "message": "诺瓦露，参上！"
+    },
+    "17": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/noir_classic/index.json",
+      "message": "诺瓦露，经典形态！"
+    },
+    "18": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/noir_santa/index.json",
+      "message": "诺瓦露，圣诞快乐！"
+    },
+    "19": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/noireswim/index.json",
+      "message": "诺瓦露，泳装模式！"
+    },
+    "20": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/vert_classic/index.json",
+      "message": "贝露，经典形态！"
+    },
+    "21": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/vert_normal/index.json",
+      "message": "贝露，准备好了！"
+    },
+    "22": {
+      "path": "/live2d_api/model/HyperdimensionNeptunia/vert_swimwear/index.json",
+      "message": "贝露，泳装模式！"
+    }
+  }
+}

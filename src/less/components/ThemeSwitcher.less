@@ -1,0 +1,80 @@
+@import '../_variables.less';
+
+.theme-switcher {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+
+  .theme-switcher-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e5e5;
+
+    .theme-switcher-label {
+      font-size: 14px;
+      color: #666;
+      margin-right: 8px;
+    }
+
+    .theme-switcher-current {
+      font-size: 14px;
+      font-weight: 600;
+      color: @primary-color;
+    }
+  }
+
+  .theme-switcher-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .theme-option {
+      padding: 8px 12px;
+      border: 1px solid #e5e5e5;
+      border-radius: 4px;
+      background: #fff;
+      color: #333;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        border-color: @primary-color;
+        color: @primary-color;
+        background: rgba(52, 152, 219, 0.05);
+      }
+
+      &.active {
+        border-color: @primary-color;
+        background: @primary-color;
+        color: #fff;
+      }
+    }
+  }
+}
+
+// 响应式设计
+@media screen and (max-width: 768px) {
+  .theme-switcher {
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    font-size: 12px;
+
+    .theme-switcher-options {
+      .theme-option {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+    }
+  }
+}

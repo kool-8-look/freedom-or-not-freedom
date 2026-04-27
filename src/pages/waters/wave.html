@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>水波文本动画</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: "Microsoft YaHei", "SimHei", "Poppins", sans-serif;
+			}
+			
+			body {
+				display: flex;
+				background: #000;
+				min-height: 100vh;
+				align-items: center;
+				justify-content: center;
+			}
+			
+			.content {
+				width: 1200px;
+			}
+			
+			.content h2 {   
+				color: #fff;
+				font-size: 60px;
+				position: absolute;
+			}
+			
+			.content h2:nth-child(1) {
+				color: transparent;
+				-webkit-text-stroke: 1px #03a9f4;
+			}
+			
+			.content h2:nth-child(2) {
+				color: #03a9f4;
+				animation: animate 2s ease-in-out infinite;
+			}
+			
+			@keyframes animate {
+				0%,
+				100% {
+					clip-path: polygon(
+						0% 45%,
+						16% 44%,
+						33% 50%,
+						54% 60%,
+						70% 61%,
+						84% 59%,
+						100% 52%,
+						100% 100%,
+						0% 100%
+					);
+				}
+			
+				50% {
+					clip-path: polygon(
+						0% 66%,
+						15% 65%,
+						34% 66%,
+						51% 62%,
+						67% 55%,
+						84% 45%,
+						100% 46%,
+						100% 100%,
+						0% 100%
+					);
+				}
+			}
+		</style>
+		<script>
+		</script>
+	</head>
+	<body>
+		<section>
+			<div class="content">
+				<h2>家事国事天下事</h2>
+				<h2>家事国事天下事</h2>
+			</div>
+		</section>
+	</body>
+</html>

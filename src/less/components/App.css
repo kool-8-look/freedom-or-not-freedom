@@ -1,0 +1,105 @@
+/* 基础重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* 让元素的宽高包含内边距和边框 */
+}
+html {
+  font-size: 16px;
+  /* 基础字体大小 */
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  /* 行高，提升可读性 */
+  color: #333;
+  /* 主文本颜色 */
+  background-color: #fff;
+  /* 背景色 */
+}
+/* 清除列表样式 */
+ul,
+ol {
+  list-style: none;
+}
+/* 清除链接下划线 */
+a {
+  text-decoration: none;
+  color: inherit;
+  /* 继承父元素颜色 */
+}
+/* 图片自适应 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  /* 避免图片下方出现空白间隙 */
+}
+/* 表单元素样式统一 */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: url('../../assets/imges/arrow.cur') 8 8, pointer;
+  background-image: url('/src/assets/imges/烟雨江南.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  --toolkit-bg-color: #e7eadd7e;
+  --layer-border: #e9ede8bb;
+  --layer-outline: #c1ddbca1;
+}
+@media screen and (min-width: 769px) {
+  #root {
+    min-width: 1920px;
+    min-height: 880px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #root {
+    min-width: 100%;
+    min-height: 100vh;
+    background-image: url('/src/assets/imges/烟雨江南2.png');
+    background-repeat: no-repeat;
+    background-size: 133% 89%;
+    background-attachment: fixed;
+    background-position: center;
+    --toolkit-bg-color: #e7eadd7e;
+    --layer-border: #e9ede8bb;
+    --layer-outline: #c1ddbca1;
+  }
+  .app-container {
+    display: none;
+  }
+}
