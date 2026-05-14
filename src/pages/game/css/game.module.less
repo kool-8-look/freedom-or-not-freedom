@@ -1,3 +1,5 @@
+@import '../../../less/_variables.less';
+
 .return-btn {
     width: 100px;
     height: 40px;
@@ -5,7 +7,7 @@
     text-align: center;
     border-radius: 20px;
     border: 1px solid #5E7962;
-    color: #ade1b5;
+    color: @font-color;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -23,14 +25,21 @@
     display: flex;
     justify-content: center;
     padding: 40px;
+
     p {
         margin: 0 10px;
         cursor: pointer;
-        font-size: 16px;
+        font-size: 24px;
         font-weight: 600;
         color: #ade1b5;
-        &:hover{
+
+        &:hover {
             color: #5E7962;
         }
     }
+
+    .active {
+        color: #5E7962;
+    }
+
 }

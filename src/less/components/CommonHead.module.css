@@ -1,0 +1,62 @@
+#common-head {
+  height: 50px;
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 1px dashed #5E7962;
+}
+#common-head .common-head-title {
+  height: 100%;
+  padding: 0 20%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+#common-head .common-head-title > p,
+#common-head .common-head-title .common-head-title-visitor-exit {
+  padding: 0 12px;
+  box-sizing: border-box;
+  color: #5E7962;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #5E7962;
+  border-radius: 20px;
+}
+#common-head .common-head-title .common-head-title-visitor {
+  margin-left: auto;
+  border-radius: 2px;
+  position: relative;
+}
+#common-head .common-head-title .common-head-title-visitor .common-head-title-visitor-exit {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  border-radius: 5px;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+#common-head .common-head-title .common-head-title-visitor .common-head-title-visitor-exit:hover {
+  background-color: #5E7962;
+  color: #fff;
+}
+#common-head .common-head-title .common-head-title-visitor:hover .common-head-title-visitor-exit {
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 768px) {
+  #common-head {
+    height: auto;
+    padding: 10px 0;
+  }
+  #common-head .common-head-title {
+    padding: 0 5%;
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+  #common-head .common-head-title .common-head-title-visitor {
+    display: none;
+  }
+}

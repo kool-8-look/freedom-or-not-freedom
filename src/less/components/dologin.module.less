@@ -1,63 +1,132 @@
 @import '../_variables.less';
 
-.dologin {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+#dologin {
     width: 100%;
-    max-width: 400px;
-    height: 422px;
-    margin: 0 auto;
-    box-sizing: border-box;
+    height: 100vh;
+    background-image: url(@bg-login);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
-    .dologin-body {
+    .dologin-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
         width: 100%;
+        max-width: 500px;
+        height: 422px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        text-align: center;
 
-        .dologin-img {
-            width: 375px;
-            height: 122px;
-            background-image: url(@bg-login);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .dologin-content {
+        .dologin-body {
             width: 100%;
-            height: 300px;
-            background-color: transparent !important;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
 
-            input {
-                width: 200px;
-                height: 30px;
+            .dologin-content {
+                width: 100%;
+                height: 400px;
+                background-color: transparent !important;
                 border-radius: 10px;
-                border: 1px solid #b2a1a1;
-                padding: 0 10px;
-                font-size: 16px;
-            }
+                padding: 20px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                gap: 20px;
 
-            .dologin-btn {
-                width: 100px;
-                height: 30px;
-                border-radius: 10px;
-                border: none;
-                background: linear-gradient(-3deg, #84A08C, #6AAD7A, #F2F4EA);
-                color: #fff;
-                font-size: 16px;
-                cursor: pointer;
+                .username-row,
+                .password-row {
+                    width: 360px;
+                    display: flex;
+                    align-items: center;
+                    gap: 55px;
+                    box-sizing: border-box;
+                }
+
+                input {
+                    width: 238px;
+                    height: 40px;
+                    border-radius: 6px;
+                    border: 1px solid #d3c2a8;
+                    padding: 0 10px;
+                    font-size: 16px;
+                }
+
+                .dologin-btn {
+                    width: 65px;
+                    height: 40px;
+                    border-radius: 10px;
+                    border: none;
+                    background: #d3c2a8;
+                    color: #333;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+
+                .identity-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 60px;
+                    margin: 8px 0;
+                    width: 360px;
+
+                    label {
+                        white-space: nowrap;
+                    }
+                }
+
+                .identity-selector {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    flex: 1;
+                }
+
+                .arrow {
+                    font-size: 16px;
+                    color: #8c6c4e;
+                    cursor: pointer;
+                    user-select: none;
+                    padding: 0 6px;
+
+                    &:active {
+                        transform: scale(0.9);
+                    }
+                }
+
+                .identity-box {
+                    // flex: 1;
+                    width: 120px;
+                    height: 36px;
+                    overflow: hidden;
+                    border: 1px solid #d3c2a8;
+                    border-radius: 6px;
+                    background: #fcf8e2;
+                }
+
+                .identity-slider {
+                    display: flex;
+                    height: 100%;
+                    transition: transform 0.3s ease-out;
+                }
+
+                .identity-item {
+                    min-width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 16px;
+                    color: #5a3e2b;
+                    font-family: "宋体", serif;
+                }
             }
         }
-    }
 
+    }
 }
 
 // @media screen and (max-width: 767px) {

@@ -1,0 +1,51 @@
+@import '../../../less/_variables.less';
+
+.game-travel {
+    width: 100%;
+    height: 100vh;
+    background-color: @bg-color;
+    position: relative;
+    overflow: hidden;
+}
+
+// 对联式竖排标签
+.fall-tag {
+    position: absolute;
+    top: 0;
+    writing-mode: vertical-rl;
+    white-space: nowrap;
+    padding: 25px 12px;
+    background: #f6efe2;
+    background-image: url('../../../assets/imges/bg-juanzhou.png');
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #b99465;
+    border-radius: 6px;
+    color: #6d4b30;
+    font-family: "宋体", serif;
+    opacity: 0;
+    pointer-events: auto; 
+    cursor: pointer; 
+    animation: fallFade 3s ease forwards;
+}
+
+// 飘落 + 淡入淡出动画
+@keyframes fallFade {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(80vh);
+        opacity: 0;
+    }
+}

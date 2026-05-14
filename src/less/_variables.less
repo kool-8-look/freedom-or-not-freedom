@@ -1,7 +1,20 @@
+// 根节点默认主题（对应你原来的颜色）
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --text-color: #333;
+  // --font-color: #5E7962;  /* 你要动态改的字体色 */
+  --font-color: #333333;  /* 你要动态改的字体色 */
+  --bg-color: #F5F1E6;  /* 背景背景色 */
+}
+// 主色调：水墨青灰 #2C3E50辅色调：朱砂红 #C0392B、竹青 #7F8C8D背景色：宣纸米白 #F5F1E6文字色：正文深墨 #333333、浅色注释 #888888
+
 // 颜色变量
-@primary-color: #3498db;
-@secondary-color: #2ecc71;
-@text-color: #333;
+@primary-color: var(--primary-color);
+@secondary-color: var(--secondary-color);
+@text-color: var(--text-color);
+@bg-color: var(--bg-color);
+@font-color: var(--font-color); // 重点！！！
 
 // 字体变量
 @font-main: "Helvetica Neue", Arial, sans-serif;
@@ -24,16 +37,18 @@
 @theme-autumn: 'autumn';
 
 // 公共背景图变量
+@bg-login: '@{img-path}bg-login.png';
+@bg-home: '@{img-path}bg-home.png';
 @bg-body: '@{img-path}烟雨江南.png';
 @bg-body2: '@{img-path}烟雨江南2.png';
 @bg-body3: '@{img-path}烟雨江南3.png';
 @bg-body-yanhua: '@{img-path}烟花.png';
 @bg-body-88: '@{img-path}88.png';
 @bg-body-10: '@{img-path}10.png';
-@bg-login: '@{img-path}登录log.png';
 @bg-main: '@{img-path}bg-main.jpg';
 @bg-header: '@{img-path}bg-header.png';
 @bg-footer: '@{img-path}bg-footer.svg';
+@bg-nav-bk: '@{img-path}nav-bk.png';
 
 // 主题背景图
 @theme-default-bg: '@{img-path}烟雨江南.png';
@@ -50,3 +65,4 @@
 
 @theme-autumn-bg: '@{img-path}烟雨江南3.png';
 @theme-autumn-bg-mobile: '@{img-path}烟雨江南3.png';
+

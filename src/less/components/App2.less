@@ -57,7 +57,7 @@ textarea {
 
 .btn-primary {
   background-color: #007bff;
-  color: #fff;
+  color: #2C3E50;
 }
 
 .btn-primary:hover {
@@ -75,7 +75,7 @@ textarea {
   height: 100%;
   position: relative;
   cursor: url('../../assets/imges/arrow.cur') 8 8, pointer;
-  background-image: url(@theme-default-bg);
+  // background-image: url(@theme-default-bg);
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -83,7 +83,8 @@ textarea {
   --toolkit-bg-color: #e7eadd7e;
   --layer-border: #e9ede8bb;
   --layer-outline: #c1ddbca1;
-  transition: background-image 0.5s ease;
+  // transition: background-image 0.5s ease;
+  background-color: #F5F1E6;
 
   .app-theme-switcher {
     position: fixed;
@@ -93,7 +94,7 @@ textarea {
     background: rgba(255, 255, 255, 0.9);
     border-radius: 50%;
     padding: 9px;
-    animation: theme-switcher-fade 8s linear  infinite;
+    animation: theme-switcher-fade 8s linear infinite;
     transition: all 0.6s ease;
   }
 }
@@ -135,25 +136,25 @@ textarea {
 
 // 樱花主题
 [data-theme="sakura"] #root {
-   --font-color: #e86498;
+  --font-color: #e86498;
   background-image: url(@theme-sakura-bg);
 }
 
 // 天空主题
 [data-theme="sky"] #root {
-   --font-color: #f7b733;
+  --font-color: #f7b733;
   background-image: url(@theme-sky-bg);
 }
 
 // 烟花主题
 [data-theme="fireworks"] #root {
-   --font-color: #4a90e2;
+  --font-color: #4a90e2;
   background-image: url(@theme-fireworks-bg);
 }
 
 // 秋季主题
 [data-theme="autumn"] #root {
-   --font-color: #b46100;
+  --font-color: #b46100;
   background-image: url(@theme-autumn-bg);
 }
 

@@ -1,0 +1,119 @@
+.game-food {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // 输入框行
+    .add-row {
+        width: 400px;
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+
+        .add-input {
+            flex: 1;
+            padding: 6px 10px;
+            border: 1px solid #d3c2a8;
+            border-radius: 4px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .add-btn {
+            padding: 6px 14px;
+            background: #d3c2a8;
+            color: #333;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    }
+
+    // 标签列表
+    .tag-list {
+        width: 600px;
+        height: 200px;
+        background-color: #d3c2a8;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 16px;
+        padding: 5px;
+        box-sizing: border-box;
+
+        // 你的标签样式
+        .tag-item {
+            height: 30px;
+            background: #d3a869;
+            color: #333333;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .tag-close {
+            position: absolute;
+            right: 1px;
+            top: 2px;
+            font-size: 12px;
+            color: #000;
+            cursor: pointer;
+            line-height: 1;
+
+            &:hover {
+                color: #f56c6c;
+            }
+        }
+    }
+
+    // 抽签按钮
+    .lottery-btn {
+        width: 100px;
+        padding: 8px 16px;
+        background: #b99465;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+
+    // 抽签结果
+    .lottery-result {
+
+        font-size: 16px;
+        color: #333;
+        font-weight: 500;
+        height: 20px;
+        /* 固定高度防止跳动 */
+
+        // 新增：滚动闪烁动画
+        .rolling {
+            color: #b99465;
+            font-weight: bold;
+            animation: blink 0.3s infinite alternate;
+        }
+
+        >span {
+            display: inline-block;
+            height: 35px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            background-color: #d3c2a8;
+
+        }
+    }
+}
+
+// 闪烁动画
+@keyframes blink {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
