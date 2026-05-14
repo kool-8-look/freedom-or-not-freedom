@@ -6,4 +6,5 @@ npm run dev
 =======
 # freedom-or-not-freedom
 随机选择
->>>>>>> 9f38e16fd937872fe49fc68e424cf7a8eb5be562
+node v18.19.1
+npm  10.2.4
